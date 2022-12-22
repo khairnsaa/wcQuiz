@@ -1,0 +1,248 @@
+:root{
+  --primary: #811435;
+  --secondary: #290415;
+}
+
+@font-face {
+  font-family: 'qatar';
+  src:  url('./assets/fonts/Graphik\ Arabic\ Medium.otf') format('opentype'),
+        url('./assets/fonts/Qatar2022Arabic-Bold.ttf') format('truetype');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: url('./assets/background.webp');
+  background-size: cover;
+  background-position: center;
+  font-family: 'qatar';
+  min-height: 100vh;
+  font-size: 16px;
+  color: #fafafa;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.logo-wrapper{
+  width: 20rem;
+  margin-bottom: -1rem;
+}
+
+.logo-wrapper img {
+   width: 100%;
+}
+
+.quizzies{ font-size: 2.5rem;}
+
+.btn{
+  font-family: 'qatar';
+  padding: 0.8rem 1.5rem;
+  border-radius: 5rem;
+  border: none;
+  outline: none;
+  background-color: #fafafa;
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0.5rem 0.8rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+.front-btn{
+  width: 20rem;
+}
+
+/************************************************  
+                  QUIZ.JSX
+************************************************/
+
+.quiz-wrapper, .finished-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.quiz, .finished{
+  background-position: center;
+  background-size: cover;
+  width: 40vw;
+  height: 70vh;
+  border-radius: 1rem;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: -1rem 0.8rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.question-ans{
+  text-align: center;
+}
+
+.question{
+  font-size: 2.2rem;
+}
+
+.ans-one, .ans-two{
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  background-color: #e9e9e9;
+  color: var(--primary);
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+}
+
+.correct{
+  background-color: rgb(84, 255, 23);
+}
+
+.false{
+  background-color: #e92913;
+  color: white;
+}
+
+.finished{
+  display: none;
+  padding: 1rem 2rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('./assets/wcWinner.jpg');
+  text-align: center;
+  box-shadow: -1rem 0.8rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.finished-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.guests{
+  display: flex;
+  justify-content: space-between;
+}
+
+.guest-card{
+  background: rgba(0, 0, 0, 0.75);
+  margin-top: 1rem;
+  border: 0.1rem solid #fafafa;
+  width: 45%;
+  height: 10rem;
+  border-radius: 0.5rem;
+  color: var(--primary);
+}
+
+.guest-card h2{
+  font-size: 3rem;
+}
+
+.go-back{
+  color: white;
+  display: none;
+  position: fixed;
+  bottom: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.correct-ans, .wrong-ans{
+  color: #fafafa;
+  padding: 1rem;
+}
+
+/************************************************  
+                  Record.JSX
+************************************************/
+
+.record-wrapper h1{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.record-table{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem auto;
+  padding: 2rem 1rem;
+  width: fit-content;
+  border-radius: 1rem;
+  box-shadow: 1rem 0.8rem 1rem rgba(0, 0, 0, 0.25);
+  background: linear-gradient(var(--primary), var(--secondary));
+}
+
+.record-header, .record-content-wrapper{
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.record-header{
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-bottom: 0.1rem solid #fafafa;
+  padding-bottom: 0.5rem;
+}
+
+.record-content-wrapper{ 
+  font-size: 1.1rem;
+  margin: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #fafafa;
+}
+
+.go-home{ 
+  font-size: 1.2rem;
+  padding: 0.5rem 2rem;
+  margin-left: 1rem;
+}
+
+footer{
+  position: fixed;
+  bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+@media only screen and (max-width: 425px) {
+  .logo-wrapper{ width: 12rem; }
+
+  .front-btn{
+    width: 10rem;
+    font-size: 1.2rem;
+  }
+
+  .quiz, .finished{
+    width: 90vw;
+    height: 25rem;
+  }
+
+  .ans-one, .ans-two{ font-size: 1rem; }
+
+  .question{ font-size: 1.6rem; }
+
+  .record-table{ margin: 1rem 0.5rem; }
+
+  .record-header{
+    font-size: 1.2rem;
+    align-items: center;
+  }
+  
+  .go-home{  font-size: 1rem; }
+  
+}
