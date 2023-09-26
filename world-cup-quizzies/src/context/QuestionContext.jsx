@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 export const QuestionContext = createContext()
 
 export const QuestionContextProvider = ({ children }) => {
-    const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 40)+1)
+    const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 20)+1)
     const [numberList, setNumberList] = useState([])
     const [ recordLocal, setRecordLocal] = useState([])
     const [records, setRecords] = useState({
@@ -29,7 +29,7 @@ export const QuestionContextProvider = ({ children }) => {
     })
 
     const generateNumber = () => {
-        setRandomNumber(Math.floor(Math.random() * 40)+1)
+        setRandomNumber(Math.floor(Math.random() * 20)+1)
         if(!numberList.includes(randomNumber)) return
         generateNumber()
     }
@@ -37,7 +37,7 @@ export const QuestionContextProvider = ({ children }) => {
     const getRandomQuestion = async () => {
         generateNumber()
         resetClass()
-        const questions = await axios.get(`https://world-cup-quizzies.fly.dev/api/collections/questions/records?perPage=40`)
+        const questions = await axios.get(`https://world-cup-quizzies.fly.dev/api/collections/questions/records?perPage=20`)
         const dataQuestions = await questions.data.items
         dataQuestions.map( async (question) => {
             if(randomNumber == Number(question.manual_id)) {   
